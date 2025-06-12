@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>SkyFly Corporation - Newsletter Signup</title>
+<link href="CSS/style.css" rel="stylesheet"/>
+<style>
+        body {
+            background-color: #0e0e1a;
+            color: #fff;
+            font-family: 'Segoe UI', sans-serif;
+            padding: 30px;
+        }
+        h2 {
+            color: #00ffff;
+        }
+        form {
+            background: #1a1a2e;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 0 10px rgba(0,255,255,0.3);
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+        }
+        input[type="text"], input[type="email"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: none;
+            border-radius: 5px;
+        }
+        textarea {
+            resize: vertical;
+        }
+        .button-group {
+            margin-top: 20px;
+        }
+        input[type="submit"], input[type="reset"] {
+            padding: 10px 15px;
+            margin-right: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #00ffff;
+            color: #111;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+<script>
+        window.onload = function() {
+            alert("Welcome to the SkyFly Corporation - Newsletter Signup");
+        };
+
+        function validateForm(e) {
+            var firstName = document.forms["newsletterForm"]["first_name"].value;
+            var lastName = document.forms["newsletterForm"]["last_name"].value;
+            if (firstName.trim() === "" || lastName.trim() === "") {
+                alert("First Name and Last Name are required.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+<header style="background: #2c2f4a; padding: 40px 20px; text-align: center; border-bottom: 2px solid #00ffff;">
+<h1 style="color: #00ffff; margin-bottom: 10px;">SkyFly Newsletter Signup</h1>
+<p style="font-size: 1.1em; color: #ccc;">Explore the future of air mobility with a smarter, greener approach to urban transport.</p>
+</header>
+<div style="margin-top: 40px;"></div>
+<form action="http://csusap.csu.edu.au/cgi-bin/echo_form" method="post" name="newsletterForm" onsubmit="return validateForm()">
+<label>First Name (required): <input maxlength="60" name="first_name" required="" type="text"/></label>
+<label>Last Name (required): <input maxlength="60" name="last_name" required="" type="text"/></label>
+<label>Email Address: <input maxlength="60" name="email" required="" type="email"/></label>
+<label>Age Range:</label>
+<label><input name="age" type="radio" value="15-25"/> 15–25</label>
+<label><input name="age" type="radio" value="26-35"/> 26–35</label>
+<label><input name="age" type="radio" value="36-45"/> 36–45</label>
+<label><input name="age" type="radio" value="46-55"/> 46–55</label>
+<label><input name="age" type="radio" value="55+"/> 55+</label>
+<label>Services Interested In:</label>
+<label><input name="service" type="checkbox" value="Airport Transfers"/> Airport Transfers</label>
+<label><input name="service" type="checkbox" value="Medical Flights"/> Emergency Medical Flights</label>
+<label><input name="service" type="checkbox" value="Remote Access"/> Remote Access</label>
+<label><input name="service" type="checkbox" value="Cargo Delivery"/> Parcel &amp; Cargo Delivery</label>
+<label><input name="service" type="checkbox" value="Flying Taxis Pro"/> Flying Taxis Pro</label>
+<label>Additional Comments:</label>
+<textarea cols="60" name="comments" rows="3"></textarea>
+<div class="button-group">
+<input type="submit" value="Subscribe"/>
+<input type="reset" value="Reset"/>
+</div>
+</form>
+<footer id="contact" style="margin-top: 60px; text-align: center; background: #2c2f4a; color: #aaa; padding: 20px;">
+<p>© 2025 Sajib Karmakar. Powered by creativity, code, and curiosity.</p>
+<p>Email: sajibkarmakar@gmail.com</p>
+</footer>
+</body>
+</html>

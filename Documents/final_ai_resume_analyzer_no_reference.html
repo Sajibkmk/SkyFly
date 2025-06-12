@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Final AI Resume Analyzer</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.4.2/mammoth.browser.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background-color: #f9f9f9; }
+        h2 { color: #333; }
+        textarea { width: 100%; height: 200px; padding: 10px; font-size: 14px; }
+        button, input[type="file"] { padding: 10px 15px; margin-top: 10px; }
+        #results { margin-top: 20px; background: #fff; padding: 15px; border: 1px solid #ccc; }
+        ul { margin-top: 5px; }
+    </style>
+</head>
+<body>
+    <h2>🤖 Final AI Resume Analyzer</h2>
+    <p>Upload your resume (PDF or Word) or paste text below. Click "Scan" to analyse your profile.</p>
+
+    <input type="file" id="fileInput" accept=".pdf,.docx" onchange="handleFile(event)">
+    <textarea id="resumeInput" placeholder="Or paste your resume text here..."></textarea><br>
+    <button onclick="scanResume()">Scan</button>
+
+    <div id="results"></div>
+
+    <script>
+        const coreSkillsList = ["python", "javascript", "html", "css", "machine learning", "data analysis",
+                                "communication", "teamwork", "project management", "sql", "leadership"];
+        const qualificationsList = ["bachelor", "master", "phd", "mba", "bsc", "msc", "doctorate", "diploma"];
+        const achievementsWords = ["awarded", "achieved", "successfully", "completed", "delivered", "led", "managed"];
+
+        function handleFile(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            const resumeText = document.getElementById("resumeInput");
+
+            if (file.type === "application/pdf") {
+                const fileReader = new FileReader();
+                fileReader.onload = function () {
+                    const typedArray = new Uint8Array(this.result);
+                    pdfjsLib.getDocument(typedArray).promise.then(pdf => {
+                        let textContent = "";
+                        let pages = [];
+                        for (let i = 1; i <= pdf.numPages; i++) {
+                            pages.push(pdf.getPage(i).then(page => {
+                                return page.getTextContent().then(content => {
+                                    const pageText = content.items.map(item => item.str).join(" ");
+                                    textContent += pageText + "\n";
+                                });
+                            }));
+                        }
+                        Promise.all(pages).then(() => {
+                            resumeText.value = textContent;
+                        });
+                    });
+                };
+                fileReader.readAsArrayBuffer(file);
+            } else if (file.name.endsWith(".docx")) {
+                reader.onload = function(event) {
+                    const arrayBuffer = reader.result;
+                    mammoth.extractRawText({ arrayBuffer: arrayBuffer }).then(result => {
+                        resumeText.value = result.value;
+                    });
+                };
+                reader.readAsArrayBuffer(file);
+            } else {
+                alert("Unsupported file format. Please upload a PDF or DOCX file.");
+            }
+        }
+
+        function scanResume() {
+            const text = document.getElementById("resumeInput").value.toLowerCase();
+            const resultsDiv = document.getElementById("results");
+
+            const coreSkills = coreSkillsList.filter(word => text.includes(word));
+            const qualifications = qualificationsList.filter(word => text.includes(word));
+            const achievements = achievementsWords.filter(word => text.includes(word));
+
+            const score = Math.min(10, Math.floor((coreSkills.length + achievements.length + qualifications.length) / 2));
+            const summary = "A technically skilled and achievement-oriented individual with strong communication, leadership, and analytical abilities, suited for dynamic and collaborative roles.";
+
+            let html = "<strong>🔍 AI Resume Analysis:</strong><br><ul>";
+            html += "<li><strong>Core Skills:</strong> " + (coreSkills.length ? coreSkills.join(', ') : "Not detected") + "</li>";
+            html += "<li><strong>Top Qualification:</strong> " + (qualifications.length ? qualifications[qualifications.length - 1].toUpperCase() : "Not found") + "</li>";
+            html += "<li><strong>Achievements Mentioned:</strong> " + (achievements.length ? achievements.join(', ') : "None detected") + "</li>";
+            html += "<li><strong>AI Rating:</strong> " + score + " / 10</li></ul>";
+            html += "<p><strong>🧠 AI Summary:</strong> " + summary + "</p>";
+
+            resultsDiv.innerHTML = html;
+        }
+    </script>
+</body>
+</html>

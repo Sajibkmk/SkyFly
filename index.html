@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SkyFly | Sajib Karmakar</title>
+<link href="CSS/style.css" rel="stylesheet"/>
+<link href="images/logo.png" rel="icon" type="image/png"/>
+<style>html { scroll-behavior: smooth; }</style>
+</head>
+<body>
+<header>
+<div class="logo" style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%;">
+<img alt="SkyFly Logo" src="Images/logo.png" style="height: 40px;"/>
+<span style="margin-top: 5px; color: #00ffff; font-weight: bold;">SkyFly</span>
+</div>
+<nav><ul><li><a class="active" href="index.html">Home</a></li><li><a href="sk_A4_about.html">About Me</a></li><li><a href="sk_A4_resume.html">Resume</a></li><li><a href="sk_A4_web_skills.html">Web Dev</a></li><li><a href="sk_A4_ai.html">AI</a></li><li><a href="sk_A4_hacking.html">Ethical Hacking</a></li></ul></nav>
+</header>
+<section class="hero">
+<div class="hero-text">
+<h1>Welcome to SkyFly</h1>
+<p>Explore the future of air mobility with a smarter, greener approach to urban transport.</p>
+<div style="text-align: center; margin-top: 20px;"><a class="btn" href="#about-skyfly" onclick="scrollToAbout(event)">Explore SkyFly</a></div>
+</div>
+</section>
+<section class="about-project highlight-card" id="about-skyfly">
+<section class="about-project highlight-card">
+<h2>🚁 About <span class="skyfly-highlight">SkyFly</span></h2>
+<p>
+    SkyFly is a visionary flying taxi project that blends clean energy, AI-driven navigation, and autonomous technology to redefine tomorrow’s travel.
+    It’s more than a concept—it’s a solution for smarter, faster, and eco-friendly commuting.
+  </p>
+</section>
+<section class="about-project highlight-card">
+<h2 style="text-align: center;">Our Services</h2>
+<div class="services-grid">
+<div class="service-card">
+<img alt="Airport Transfers" src="Images/service1.jpg"/>
+<h3>Airport Transfers</h3>
+<p>Fast, premium flights between airports and city hubs — perfect for avoiding traffic and saving time.</p>
+</div>
+<div class="service-card">
+<img alt="Emergency Medical Flights" src="Images/service2.jpg"/>
+<h3>Emergency Medical Flights</h3>
+<p>Critical care airlifts and rapid organ delivery to hospitals — because every second counts.</p>
+</div>
+<div class="service-card">
+<img alt="Remote Access" src="Images/service3.jpg"/>
+<h3>Remote Access</h3>
+<p>Fly in and out of rural or hard-to-reach areas, improving mobility and regional connectivity.</p>
+</div>
+<div class="service-card">
+<img alt="Parcel &amp; Cargo Delivery" src="Images/service4.jpg"/>
+<h3>Parcel &amp; Cargo Delivery</h3>
+<p>Rapid, efficient delivery of light cargo, medical supplies, or e-commerce goods — all by air.</p>
+</div>
+</div>
+</section>
+<style>
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+  }
+  .service-card {
+    background: #ffffff;
+    color: #000;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding-bottom: 20px;
+    text-align: center;
+  }
+  .service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  }
+  .service-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
+  }
+  .service-card h3 {
+    margin: 15px 0 10px;
+    color: #00cccc;
+  }
+  .service-card p {
+    padding: 0 15px;
+    font-size: 0.95em;
+  }
+</style>
+<section class="about-project highlight-card">
+<h2>✈️ The Future of Flying Taxis</h2>
+<p>
+    Flying taxis will transform cities within the next decade, offering vertical take-off, smart routing, and zero-emission commuting for daily travel.
+  </p>
+</section>
+<section class="about-project highlight-card">
+<h2>📸 Concept Picture</h2>
+<img alt="Flying Taxi Demo Concept" src="Images/concept_picture.jpg" style="max-width: 100%; border-radius: 12px;"/>
+</section>
+<section class="about-project highlight-card">
+<h2>🔭 Future Vision of <span class="skyfly-highlight">SkyFly</span></h2>
+<p>
+    SkyFly envisions a world where transportation is seamless, clean, and airborne. By integrating AI, smart energy systems,
+    and autonomous flight, we strive to create not just a better commute—but a better future. With a focus on innovation,
+    equity, and sustainability, SkyFly aims to become the symbol of next-gen urban mobility.
+  </p>
+</section>
+<section class="about-project highlight-card" id="contact">
+<h2>📞 Contact Us</h2>
+<p>📧 Mail: <a href="mailto:flying.taxis@skyfly.com">flying.taxis@skyfly.com</a></p>
+<p>📱 Phone: 234456 (24 hours)</p>
+</section>
+<footer id="contact">
+<p>© 2025 Sajib Karmakar. Powered by creativity, code, and curiosity.</p>
+<p>Email: sajibkarmakar@gmail.com</p>
+</footer>
+<script>
+function scrollToAbout(event) {
+  event.preventDefault();
+  const target = document.getElementById("about-skyfly");
+  if (target) {
+    window.scrollTo({
+      top: target.offsetTop - 60,
+      behavior: "smooth"
+    });
+  }
+}
+</script>
+</section></body>
+</html>
