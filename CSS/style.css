@@ -1,0 +1,187 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: #0e0e1a;
+    color: #fff;
+    line-height: 1.6;
+}
+
+header {
+    background: #2c2f4a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #00ffff;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #ccc;
+    transition: 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+    color: #00ffff;
+}
+
+.hero {
+    background: linear-gradient(to right, #0f0f1f, #1a1a3a);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero-text h1 {
+    font-size: 3em;
+    color: #00ffff;
+}
+
+.hero-text p {
+    margin: 10px 0;
+    font-size: 1.2em;
+}
+
+.btn {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #00ffff;
+    color: #111;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.about-project, .skills, .newsletter {
+    padding: 60px 30px;
+    text-align: center;
+    background-color: #1a1a2e;
+}
+
+.skill-cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.card {
+    background: #262626;
+    padding: 20px;
+    border-radius: 10px;
+    width: 200px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    background: #00ffff;
+    color: #000;
+}
+
+.newsletter input[type="email"] {
+    padding: 10px;
+    width: 250px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.newsletter button {
+    padding: 10px 20px;
+    background: #00ffff;
+    border: none;
+    color: #111;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+footer {
+    padding: 20px;
+    background: #2c2f4a;
+    text-align: center;
+    color: #aaa;
+    font-size: 0.9em;
+}
+
+header {
+    flex-direction: column;
+    gap: 10px;
+}
+
+@media print {
+    body {
+        width: 210mm;
+        height: 297mm;
+        margin: 0 auto;
+        background: white;
+        color: black;
+    }
+    header, nav, .newsletter, footer {
+        display: none;
+    }
+    .about-project, .skills {
+        background: white;
+        color: black;
+    }
+    .card {
+        page-break-inside: avoid;
+    }
+}
+
+/* A4 Print Friendly */
+@media print {
+    body {
+        width: 210mm;
+        height: 297mm;
+        margin: 0 auto;
+        background: white;
+        color: black;
+    }
+    header, nav, .newsletter, footer {
+        display: none;
+    }
+    .about-project, .skills {
+        background: white;
+        color: black;
+    }
+    .card {
+        page-break-inside: avoid;
+    }
+}
+
+/* Highlighted Sections */
+.skyfly-highlight {
+    color: #00ffff;
+    font-weight: bold;
+}
+.highlight-card {
+    background: #1e1e35;
+    padding: 30px;
+    border-left: 5px solid #00ffff;
+    margin-top: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,255,255,0.2);
+}
